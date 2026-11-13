@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>50th Death Anniversary • Golden Jubilee Remembrance 🕊️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-parchment: #f7f4ee;
+      --bg-stone: #ebe5d8;
+      --charcoal-deep: #1e1d1b;
+      --charcoal-soft: #4a4741;
+      --antique-gold: #b8893a;
+      --gold-light: #e6c687;
+      --candle-glow: #ffbe55;
+      --card-surface: rgba(255, 253, 249, 0.92);
+      --border-subtle: rgba(184, 137, 58, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      touch-action: manipulation;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 50% 12%, #ffffff 0%, #f5f1e8 42%, #e6dfd1 100%);
+      color: var(--charcoal-deep);
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      padding-bottom: calc(105px + env(safe-area-inset-bottom, 20px));
+      position: relative;
+    }
+
+    .ambient-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .halo-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 198, 135, 0.32) 0%, rgba(255, 255, 255, 0) 70%);
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: breatheHalo 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes breatheHalo {
+      0% { transform: translateX(-50%) scale(0.95); opacity: 0.65; }
+      100% { transform: translateX(-50%) scale(1.12); opacity: 1; }
+    }
+
+    .floating-element {
+      position: absolute;
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      opacity: 0.45;
+      filter: grayscale(35%) drop-shadow(0 4px 10px rgba(30, 29, 27, 0.15));
+      animation: gentleDrift 11s ease-in-out infinite alternate;
+      user-select: none;
+    }
+
+    .fe1 { top: 6%; left: 6%; animation-delay: 0s; }
+    .fe2 { top: 26%; right: 6%; animation-delay: -3s; }
+    .fe3 { top: 58%; left: 5%; animation-delay: -5.5s; }
+    .fe4 { top: 82%; right: 7%; animation-delay: -2s; }
+
+    @keyframes gentleDrift {
+      0% { transform: translateY(0px) rotate(-4deg); }
+      100% { transform: translateY(-18px) rotate(4deg); }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: clamp(20px, 5vw, 34px) 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .jubilee-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .cross-emblem {
+      font-size: 1.75rem;
+      color: var(--antique-gold);
+      margin-bottom: 6px;
+      display: inline-block;
+      text-shadow: 0 2px 12px rgba(184, 137, 58, 0.35);
+    }
+
+    .jubilee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 15px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border-subtle);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--antique-gold);
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(30, 29, 27, 0.06);
+    }
+
+    .main-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.85rem, 6.8vw, 2.45rem);
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.22;
+      letter-spacing: 0.8px;
+    }
+
+    .sub-dates {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.6vw, 1.22rem);
+      color: var(--charcoal-soft);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .portrait-card {
+      background: var(--card-surface);
+      border-radius: 24px;
+      padding: 18px 16px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 18px 42px rgba(30, 29, 27, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-subtle);
+      text-align: center;
+      position: relative;
+    }
+
+    .portrait-frame {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto 16px;
+      aspect-ratio: 3 / 4;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #232220;
+      box-shadow: 0 12px 30px rgba(20, 19, 18, 0.28);
+      border: 3px solid #e7decb;
+    }
+
+    .portrait-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 36px rgba(15, 14, 13, 0.45);
+      pointer-events: none;
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: contrast(1.04) saturate(0.95);
+      transition: transform 0.8s ease;
+    }
+
+    .portrait-frame:hover .portrait-img {
+      transform: scale(1.02);
+    }
+
+    .sister-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.35rem, 4.8vw, 1.65rem);
+      font-weight: 800;
+      color: var(--charcoal-deep);
+      letter-spacing: 1px;
+    }
+
+    .sister-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--antique-gold);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 12px auto 0;
+      color: var(--antique-gold);
+      font-size: 0.9rem;
+    }
+
+    .divider-line {
+      height: 1px;
+      width: 55px;
+      background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+    }
+
+    .reflection-card {
+      background: var(--card-surface);
+      border-radius: 22px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(30, 29, 27, 0.08);
+      text-align: center;
+    }
+
+    .scripture-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 3.8vw, 1.32rem);
+      color: var(--charcoal-deep);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .scripture-ref {
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--antique-gold);
+      text-transform: uppercase;
+    }
+
+    .virtues-card {
+      background: var(--card-surface);
+      border-radius: 22px;
+      padding: 20px 16px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(30, 29, 27, 0.08);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: var(--charcoal-deep);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .section-hint {
+      font-size: 0.8rem;
+      color: var(--charcoal-soft);
+      margin-bottom: 16px;
+    }
+
+    .beads-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .beads-row::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      right: 15%;
+      height: 1.5px;
+      background: rgba(184, 137, 58, 0.35);
+      z-index: 0;
+    }
+
+    .rosary-bead {
+      position: relative;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fdfbf7;
+      border: 1.5px solid var(--antique-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(30, 29, 27, 0.1);
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .rosary-bead.lit {
+      background: linear-gradient(135deg, #f3dca8, #d4a349);
+      color: #fff;
+      transform: scale(1.12);
+      box-shadow: 0 0 18px rgba(212, 163, 73, 0.65);
+    }
+
+    .virtue-display {
+      min-height: 42px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--charcoal-deep);
+      padding: 6px 12px;
+      background: rgba(235, 229, 216, 0.45);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .candle-card {
+      background: linear-gradient(165deg, #24221f 0%, #171614 100%);
+      color: #f7f4ee;
+      border-radius: 24px;
+      padding: 26px 18px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(20, 19, 18, 0.28);
+      border: 1px solid rgba(230, 198, 135, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .candle-halo {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 190, 85, 0.35) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    .candle-card.lit .candle-halo {
+      opacity: 1;
+    }
+
+    .vigil-candle-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      margin: 8px 0 14px;
+      position: relative;
+      z-index: 2;
+      touch-action: manipulation;
+    }
+
+    .vigil-flame {
+      width: 18px;
+      height: 30px;
+      background: radial-gradient(ellipse at 50% 80%, #ffffff 0%, #ffe270 45%, #ff8c1a 100%);
+      border-radius: 50% 50% 35% 35%;
+      box-shadow: 0 0 20px #ffbe55, 0 0 40px rgba(255, 140, 26, 0.7);
+      animation: candleFlicker 1.1s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+      opacity: 0.25;
+      transform: scale(0.6);
+      transition: all 0.45s ease;
+    }
+
+    .candle-card.lit .vigil-flame {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @keyframes candleFlicker {
+      0% { transform: rotate(-2deg) scale(0.97); }
+      100% { transform: rotate(2.5deg) scale(1.04); }
+    }
+
+    .vigil-wick {
+      width: 3px;
+      height: 8px;
+      background: #555;
+    }
+
+    .vigil-body {
+      width: 44px;
+      height: 78px;
+      background: linear-gradient(90deg, #e8e2d5 0%, #ffffff 45%, #d6cebe 100%);
+      border-radius: 6px 6px 4px 4px;
+      box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .vigil-body::after {
+      content: '✝';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--antique-gold);
+      font-size: 1.1rem;
+    }
+
+    .candle-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 1.8px;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .candle-sub {
+      font-size: 0.82rem;
+      color: #cfc8ba;
+      line-height: 1.5;
+    }
+
+    .prayer-confirmation {
+      display: none;
+      margin-top: 14px;
+      padding: 10px 16px;
+      border-radius: 50px;
+      background: rgba(230, 198, 135, 0.16);
+      border: 1px solid rgba(230, 198, 135, 0.45);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .family-tears-card {
+      background: linear-gradient(135deg, rgba(255, 254, 250, 0.96) 0%, rgba(244, 239, 229, 0.96) 100%);
+      border-radius: 22px;
+      padding: 22px 18px;
+      margin-bottom: 20px;
+      border: 1.5px dashed rgba(184, 137, 58, 0.5);
+      box-shadow: 0 12px 28px rgba(30, 29, 27, 0.08);
+      text-align: center;
+    }
+
+    .tears-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: var(--antique-gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .tears-message {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.12rem, 3.6vw, 1.26rem);
+      color: var(--charcoal-deep);
+      line-height: 1.62;
+      margin-bottom: 12px;
+    }
+
+    .tears-signature {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--charcoal-soft);
+      text-transform: uppercase;
+    }
+
+    .music-pill-btn {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      right: 16px;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.96);
+      border: 1.5px solid var(--antique-gold);
+      box-shadow: 0 6px 24px rgba(30, 29, 27, 0.25);
+      border-radius: 50px;
+      padding: 9px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      touch-action: manipulation;
+    }
+
+    .music-pill-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hymn-icon {
+      font-size: 1.1rem;
+      color: var(--antique-gold);
+    }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .music-track-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+    }
+
+    .music-play-status {
+      font-size: 0.64rem;
+      color: var(--antique-gold);
+      font-weight: 700;
+    }
+
+    .equalizer-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+    }
+
+    .eq-bar {
+      width: 3px;
+      height: 4px;
+      background: var(--antique-gold);
+      border-radius: 2px;
+      transition: height 0.2s ease;
+    }
+
+    .music-pill-btn.playing .eq-bar:nth-child(1) { animation: equalize 0.9s ease-in-out infinite alternate; }
+    .music-pill-btn.playing .eq-bar:nth-child(2) { animation: equalize 0.7s ease-in-out infinite alternate 0.2s; }
+    .music-pill-btn.playing .eq-bar:nth-child(3) { animation: equalize 1s ease-in-out infinite alternate 0.4s; }
+
+    @keyframes equalize {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="I-Heard-the-Voice-of-Jesus-Say.mp3" type="audio/mpeg" />
+    <source src="hymn.mp3" type="audio/mpeg" />
+    <source src="song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="ambient-layer">
+    <div class="halo-glow"></div>
+    <div class="floating-element fe1">🕊️</div>
+    <div class="floating-element fe2">🤍</div>
+    <div class="floating-element fe3">✨</div>
+    <div class="floating-element fe4">🕊️</div>
+  </div>
+
+  <div class="container">
+
+    <header class="jubilee-header">
+      <div class="cross-emblem">✝</div><br />
+      <div class="jubilee-pill">50th Death Anniversary • Golden Jubilee</div>
+      <h1 class="main-title">In Loving &amp; Sacred Memory</h1>
+      <p class="sub-dates">1976 – 2026 • Fifty Years in the Embrace of Eternal Peace</p>
+    </header>
+
+    <section class="portrait-card">
+      <div class="portrait-frame">
+        <img
+          src="WhatsApp Image 2026-11-13 at 13.55.02.jpeg"
+          alt="Beloved Sister Memorial Portrait"
+          class="portrait-img"
+        />
+      </div>
+
+      <h2 class="sister-name">Sr. Annice</h2>
+      <p class="sister-role">A Life of Silent Devotion, Grace &amp; Service</p>
+
+      <div class="divider-ornament">
+        <span class="divider-line"></span>
+        <span>✝</span>
+        <span class="divider-line"></span>
+      </div>
+    </section>
+
+    <section class="reflection-card">
+      <p class="scripture-quote">
+        “Well done, good and faithful servant. Enter into the joy of your Lord, where every tear is wiped away and peace reigns forevermore.”
+      </p>
+      <div class="scripture-ref">Matthew 25:23 • Eternal Rest</div>
+    </section>
+
+    <section class="virtues-card">
+      <div class="section-label">Five Decades of Her Legacy</div>
+      <p class="section-hint">Tap each bead to reflect on the graces of her life</p>
+
+      <div class="beads-row">
+        <div class="rosary-bead lit" onclick="selectBead(0, this, event)">✝</div>
+        <div class="rosary-bead" onclick="selectBead(1, this, event)">🤍</div>
+        <div class="rosary-bead" onclick="selectBead(2, this, event)">🕊️</div>
+        <div class="rosary-bead" onclick="selectBead(3, this, event)">🌿</div>
+        <div class="rosary-bead" onclick="selectBead(4, this, event)">✨</div>
+      </div>
+
+      <div class="virtue-display" id="virtueText">
+        Unwavering Faith — Walking every day in trust and prayer
+      </div>
+    </section>
+
+    <section class="candle-card" id="candleCard">
+      <div class="candle-halo"></div>
+      <div class="candle-title">Light a Candle of Remembrance</div>
+      <p class="candle-sub" id="candlePrompt">Tap the candle below to offer a silent prayer on her 50th anniversary</p>
+
+      <div class="vigil-candle-wrapper" onclick="lightVigilCandle(event)">
+        <div class="vigil-flame"></div>
+        <div class="vigil-wick"></div>
+        <div class="vigil-body"></div>
+      </div>
+
+      <div class="prayer-confirmation" id="prayerBanner">
+        🕯️ Eternal rest grant unto her, O Lord, and let perpetual light shine upon her.
+      </div>
+    </section>
+
+    <section class="family-tears-card">
+      <div style="font-size: 1.5rem; margin-bottom: 6px;">🕊️</div>
+      <h3 class="tears-heading">With Tears &amp; Loving Prayers</h3>
+      <p class="tears-message">
+        “Fifty years have passed since you were called to your heavenly home, yet your gentle smile, selfless prayers, and unconditional love live on in our hearts every single day. With tearful eyes and grateful hearts, we miss you dearly.”
+      </p>
+      <div class="tears-signature">— With Tears &amp; Remembrance from Your Loving Family</div>
+    </section>
+
+  </div>
+
+  <button type="button" class="music-pill-btn" id="musicBtn" onclick="toggleMusic(event)">
+    <span class="hymn-icon">🎶</span>
+    <div class="music-info">
+      <span class="music-track-title">I Heard the Voice of Jesus Say</span>
+      <span class="music-play-status" id="musicStatus">Tap to Play Hymn</span>
+    </div>
+    <div class="equalizer-bars">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </button>
+
+  <script>
+    let isMusicPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicStatus = document.getElementById('musicStatus');
+
+    const virtues = [
+      "Unwavering Faith — Walking every day in trust and prayer",
+      "Boundless Compassion — Caring for every soul with gentle kindness",
+      "Quiet Humility — Serving in silence without seeking recognition",
+      "Steadfast Devotion — Fifty years of consecrated love for Christ",
+      "Eternal Peace — Resting forever in the light of Heaven"
+    ];
+
+    function selectBead(index, el, e) {
+      if (e) e.stopPropagation();
+      document.querySelectorAll('.rosary-bead').forEach(b => b.classList.remove('lit'));
+      el.classList.add('lit');
+      document.getElementById('virtueText').innerText = virtues[index];
+    }
+
+    function lightVigilCandle(e) {
+      if (e) e.stopPropagation();
+      const card = document.getElementById('candleCard');
+
+      if (!card.classList.contains('lit')) {
+        card.classList.add('lit');
+        document.getElementById('candlePrompt').innerText = "A flame of prayer and gratitude burns in her honor";
+        document.getElementById('prayerBanner').style.display = "inline-block";
+      }
+
+      if (!isMusicPlaying) {
+        playMusic();
+      }
+    }
+
+    function playMusic() {
+      if (!bgMusic) return;
+
+      const playPromise = bgMusic.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isMusicPlaying = true;
+          musicBtn.classList.add('playing');
+          musicStatus.innerText = 'Playing Hymn';
+        }).catch(err => {
+          console.error("Audio playback error:", err);
+          musicStatus.innerText = 'Tap Again to Play';
+        });
+      }
+    }
+
+    function pauseMusic() {
+      if (!bgMusic) return;
+
+      bgMusic.pause();
+      isMusicPlaying = false;
+      musicBtn.classList.remove('playing');
+      musicStatus.innerText = 'Paused';
+    }
+
+    function toggleMusic(e) {
+      if (e) e.stopPropagation();
+
+      if (isMusicPlaying) {
+        pauseMusic();
+      } else {
+        playMusic();
+      }
+    }
+  </script>
+
+</body>
+</html>
